@@ -14,7 +14,7 @@
         body {
             font-family: 'Georgia', 'Times New Roman', serif;
             overflow: hidden;
-            color: #e0f7ff;
+            color: #ffffff; /* ✅ BLANCO PURO PARA QUE SE VEA */
             cursor: pointer;
         }
 
@@ -25,22 +25,11 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-image: url('Screenshot_2026-05-06-17-40-07-171_com.pinterest.jpg');
+            background-image: url('tu-imagen.jpg');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.5) contrast(1.1);
+            filter: brightness(0.4); /* ✅ Un poco más oscuro para resaltar letras */
             z-index: -2;
-        }
-
-        /* EFECTO DE LUZ SUAVE */
-        .brillo {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: radial-gradient(circle at center, rgba(100, 150, 255, 0.15) 0%, transparent 70%);
-            z-index: -1;
         }
 
         .contenido {
@@ -57,7 +46,10 @@
             font-size: 1.6rem;
             line-height: 1.8;
             text-align: center;
-            text-shadow: 0 0 15px rgba(0, 100, 200, 0.8), 2px 2px 8px rgba(0,0,0,0.9);
+            text-shadow: 
+                0 0 10px #000000, 
+                0 0 20px #000000, 
+                2px 2px 4px rgba(0,0,0,1); /* ✅ Sombra negra fuerte */
         }
 
         .palabra {
@@ -87,7 +79,6 @@
 <body>
 
     <div class="fondo"></div>
-    <div class="brillo"></div>
 
     <div class="contenido">
         <div class="texto" id="cajaTexto">
@@ -146,7 +137,6 @@
             <span class="palabra">fuimos</span>
             <span class="palabra">o</span>
             <span class="palabra">lo</span>
-            <span class="palabra">que</span>
             <span class="palabra">creímos</span>
             <span class="palabra">ser.</span>
 
@@ -232,7 +222,6 @@
             <span class="palabra">ojalá</span>
             <span class="palabra">encuentres</span>
             <span class="palabra">lo</span>
-            <span class="palabra">que</span>
             <span class="palabra">conmigo</span>
             <span class="palabra">no</span>
             <span class="palabra">pudiste,</span>
@@ -271,7 +260,7 @@
 
     <script>
         const palabras = document.querySelectorAll('.palabra');
-        let reproduciendo = true; // ✅ AHORA EMPIEZA AUTOMÁTICO
+        let reproduciendo = true;
         let indice = 0;
         let tiempo;
 
@@ -283,12 +272,10 @@
             }
         }
 
-        // Iniciar apenas cargue
         window.onload = function() {
             mostrarSiguiente();
         }
 
-        // Para pausar y seguir
         document.body.addEventListener('click', function() {
             reproduciendo = !reproduciendo;
             if (reproduciendo) {
@@ -300,4 +287,5 @@
     </script>
 
 </body>
-</html>
+                </html>
+                
