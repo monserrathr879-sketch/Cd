@@ -41,7 +41,7 @@
 </head>
 <body>
 
-    <!-- AQUÍ CARGAMOS EL AUDIO -->
+    <!-- AQUÍ CARGAMOS EL AUDIO CON EL NOMBRE EXACTO -->
     <audio id="musica" loop>
         <source src="Dean Lewis - With You (Official Video)_1747585723267.mp3" type="audio/mpeg">
     
@@ -79,7 +79,7 @@ Pero volver significaría perderme otra vez, y esta vez elegí quedarme conmigo,
         // INICIAR TEXTO Y MÚSICA
         function iniciar() {
             escribir();
-            musica.play(); // Suena la música
+            musica.play().catch(() => {});
         }
 
         // PAUSAR Y SEGUIR TODO AL DAR CLIC
