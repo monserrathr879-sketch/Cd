@@ -12,280 +12,73 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: 'Georgia', serif;
+            background: #000 url('tu-imagen.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
             overflow: hidden;
-            color: #ffffff; /* ✅ BLANCO PURO PARA QUE SE VEA */
             cursor: pointer;
         }
 
-        /* IMAGEN DE FONDO */
-        .fondo {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-image: url('Screenshot_2026-05-06-17-40-07-171_com.pinterest.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.4); /* ✅ Un poco más oscuro para resaltar letras */
-            z-index: -2;
-        }
-
-        .contenido {
+        .contenedor {
             width: 100%;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 20px;
+            background-color: rgba(0, 0, 50, 0.5);
         }
 
         .texto {
-            max-width: 800px;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             line-height: 1.8;
             text-align: center;
-            text-shadow: 
-                0 0 10px #000000, 
-                0 0 20px #000000, 
-                2px 2px 4px rgba(0,0,0,1); /* ✅ Sombra negra fuerte */
-        }
-
-        .palabra {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(30px) scale(0.9);
-            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .palabra.aparecer {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .salto {
-            display: block;
-            height: 1em;
-        }
-
-        @media (max-width: 768px) {
-            .texto {
-                font-size: 1.3rem;
-            }
+            text-shadow: 2px 2px 4px black;
+            max-width: 800px;
         }
     </style>
 </head>
 <body>
 
-    <div class="fondo"></div>
-
-    <div class="contenido">
-        <div class="texto" id="cajaTexto">
-            <span class="palabra">Te</span>
-            <span class="palabra">extraño,</span>
-            <span class="palabra">pero</span>
-            <span class="palabra">no</span>
-            <span class="palabra">te</span>
-            <span class="palabra">quiero</span>
-            <span class="palabra">devuelta</span>
-            <span class="palabra">suena</span>
-            <span class="palabra">absurdo</span>
-            <span class="palabra">pero</span>
-            <span class="palabra">es</span>
-            <span class="palabra">la</span>
-            <span class="palabra">verdad</span>
-            <span class="palabra">que</span>
-            <span class="palabra">más</span>
-            <span class="palabra">me</span>
-            <span class="palabra">duele</span>
-            <span class="palabra">aceptar,</span>
-
-            <span class="salto"></span>
-
-            <span class="palabra">extraño</span>
-            <span class="palabra">tu</span>
-            <span class="palabra">risa,</span>
-            <span class="palabra">la</span>
-            <span class="palabra">forma</span>
-            <span class="palabra">en</span>
-            <span class="palabra">que</span>
-            <span class="palabra">mi</span>
-            <span class="palabra">nombre</span>
-            <span class="palabra">sonaba</span>
-            <span class="palabra">distinto</span>
-            <span class="palabra">cuando</span>
-            <span class="palabra">lo</span>
-            <span class="palabra">decías</span>
-            <span class="palabra">la</span>
-            <span class="palabra">manera</span>
-            <span class="palabra">en</span>
-            <span class="palabra">que</span>
-            <span class="palabra">tus</span>
-            <span class="palabra">ojos</span>
-            <span class="palabra">me</span>
-            <span class="palabra">hacían</span>
-            <span class="palabra">sentir</span>
-            <span class="palabra">en</span>
-            <span class="palabra">casa,</span>
-
-            <span class="salto"></span>
-
-            <span class="palabra">extraño</span>
-            <span class="palabra">lo</span>
-            <span class="palabra">que</span>
-            <span class="palabra">fuimos</span>
-            <span class="palabra">o</span>
-            <span class="palabra">lo</span>
-            <span class="palabra">creímos</span>
-            <span class="palabra">ser.</span>
-
-            <span class="salto"></span>
-
-            <span class="palabra">Pero</span>
-            <span class="palabra">no</span>
-            <span class="palabra">extraño</span>
-            <span class="palabra">las</span>
-            <span class="palabra">noches</span>
-            <span class="palabra">sintiéndome</span>
-            <span class="palabra">solo</span>
-            <span class="palabra">a</span>
-            <span class="palabra">tu</span>
-            <span class="palabra">lado,</span>
-            <span class="palabra">no</span>
-            <span class="palabra">extraño</span>
-            <span class="palabra">las</span>
-            <span class="palabra">dudas,</span>
-            <span class="palabra">ni</span>
-            <span class="palabra">el</span>
-            <span class="palabra">silencio</span>
-            <span class="palabra">que</span>
-            <span class="palabra">gritaba</span>
-            <span class="palabra">más</span>
-            <span class="palabra">que</span>
-            <span class="palabra">nosotros...</span>
-
-            <span class="salto"></span>
-
-            <span class="palabra">No</span>
-            <span class="palabra">extraño</span>
-            <span class="palabra">la</span>
-            <span class="palabra">versión</span>
-            <span class="palabra">de</span>
-            <span class="palabra">mí</span>
-            <span class="palabra">que</span>
-            <span class="palabra">se</span>
-            <span class="palabra">rompió</span>
-            <span class="palabra">intentando</span>
-            <span class="palabra">que</span>
-            <span class="palabra">esto</span>
-            <span class="palabra">funcionara</span>
-
-            <span class="salto"></span>
-
-            <span class="palabra">te</span>
-            <span class="palabra">extraño</span>
-            <span class="palabra">porque</span>
-            <span class="palabra">fuiste</span>
-            <span class="palabra">parte</span>
-            <span class="palabra">de</span>
-            <span class="palabra">mi</span>
-            <span class="palabra">vida,</span>
-            <span class="palabra">porque</span>
-            <span class="palabra">hay</span>
-            <span class="palabra">recuerdos</span>
-            <span class="palabra">que</span>
-            <span class="palabra">se</span>
-            <span class="palabra">quedan</span>
-            <span class="palabra">tatuados</span>
-            <span class="palabra">en</span>
-            <span class="palabra">el</span>
-            <span class="palabra">alma...</span>
-
-            <span class="salto"></span>
-
-            <span class="palabra">Pero</span>
-            <span class="palabra">volver</span>
-            <span class="palabra">significaría</span>
-            <span class="palabra">perderme</span>
-            <span class="palabra">otra</span>
-            <span class="palabra">vez,</span>
-            <span class="palabra">y</span>
-            <span class="palabra">esta</span>
-            <span class="palabra">vez</span>
-            <span class="palabra">elegí</span>
-            <span class="palabra">quedarme</span>
-            <span class="palabra">conmigo,</span>
-
-            <span class="salto"></span>
-
-            <span class="palabra">ojalá</span>
-            <span class="palabra">encuentres</span>
-            <span class="palabra">lo</span>
-            <span class="palabra">conmigo</span>
-            <span class="palabra">no</span>
-            <span class="palabra">pudiste,</span>
-            <span class="palabra">ojalá</span>
-            <span class="palabra">alguien</span>
-            <span class="palabra">te</span>
-            <span class="palabra">ame</span>
-            <span class="palabra">sin</span>
-            <span class="palabra">miedo</span>
-            <span class="palabra">y</span>
-            <span class="palabra">tú</span>
-            <span class="palabra">sepas</span>
-            <span class="palabra">quedarte,</span>
-
-            <span class="salto"></span>
-
-            <span class="palabra">yo</span>
-            <span class="palabra">aprenderé</span>
-            <span class="palabra">a</span>
-            <span class="palabra">recordarte</span>
-            <span class="palabra">sin</span>
-            <span class="palabra">llorarte,</span>
-            <span class="palabra">adiós</span>
-            <span class="palabra">que</span>
-            <span class="palabra">la</span>
-            <span class="palabra">vida</span>
-            <span class="palabra">te</span>
-            <span class="palabra">cuide,</span>
-            <span class="palabra">como</span>
-            <span class="palabra">tú</span>
-            <span class="palabra">no</span>
-            <span class="palabra">supiste</span>
-            <span class="palabra">cuidarme</span>
+    <div class="contenedor">
+        <div class="texto" id="texto">
+            <!-- AQUÍ VA A APARECER EL TEXTO -->
         </div>
     </div>
 
     <script>
-        const palabras = document.querySelectorAll('.palabra');
-        let reproduciendo = true;
+        // El mensaje completo
+        const mensaje = `Te extraño, pero no te quiero devuelta suena absurdo pero es la verdad que más me duele aceptar, extraño tu risa, la forma en que mi nombre sonaba distinto cuando lo decías la manera en que tus ojos me hacían sentir en casa, extraño lo que fuimos o lo que creímos ser.
+
+Pero no extraño las noches sintiéndome solo a tu lado, no extraño las dudas, ni el silencio que gritaba más que nosotros...
+
+No extraño la versión de mí que se rompió intentando que esto funcionara te extraño porque fuiste parte de mi vida, porque hay recuerdos que se quedan tatuados en el alma...
+
+Pero volver significaría perderme otra vez, y esta vez elegí quedarme conmigo, ojalá encuentres lo que conmigo no pudiste, ojalá alguien te ame sin miedo y tú sepas quedarte, yo aprenderé a recordarte sin llorarte, adiós que la vida te cuide, como tú no supiste cuidarme`;
+
+        const elementoTexto = document.getElementById('texto');
         let indice = 0;
-        let tiempo;
+        let pausa = false;
 
-        function mostrarSiguiente() {
-            if (indice < palabras.length && reproduciendo) {
-                palabras[indice].classList.add('aparecer');
+        // Función para escribir letra por letra
+        function escribir() {
+            if (!pausa && indice < mensaje.length) {
+                elementoTexto.innerHTML += mensaje.charAt(indice);
                 indice++;
-                tiempo = setTimeout(mostrarSiguiente, 350);
+                setTimeout(escribir, 50); // Velocidad de escritura
             }
         }
 
-        window.onload = function() {
-            mostrarSiguiente();
-        }
+        // Iniciar
+        escribir();
 
+        // Pausar y seguir al dar clic
         document.body.addEventListener('click', function() {
-            reproduciendo = !reproduciendo;
-            if (reproduciendo) {
-                mostrarSiguiente();
-            } else {
-                clearTimeout(tiempo);
-            }
+            pausa = !pausa;
+            if (!pausa) escribir();
         });
     </script>
 
 </body>
-                </html>
-                
+</html>
