@@ -27,6 +27,8 @@
     </style>
 </head>
 <body>
+
+    <!-- ✅ AUDIO CERRADO CORRECTAMENTE -->
     <audio id="musica" loop>
         <source src="Dean Lewis - With You (Official Video)_1747585723267.mp3" type="audio/mpeg">
     
@@ -46,19 +48,29 @@ Pero volver significaría perderme otra vez, y esta vez elegí quedarme conmigo,
         const mus = document.getElementById('musica');
         let i=0, pausa=false;
 
-        function esc() {
-            if(!pausa && i<mensaje.length){
+        function escribir() {
+            if(!pausa && i < mensaje.length){
                 txt.innerHTML += mensaje.charAt(i);
                 i++;
-                setTimeout(esc, 100);
+                setTimeout(escribir, 100);
             }
         }
-        esc(); mus.play();
 
-        document.body.onclick = ()=>{
-            pausa=!pausa;
-            pausa ? mus.pause() : (esc(), mus.play());
+        // INICIAR
+        escribir();
+        mus.play();
+
+        // PAUSAR
+        document.body.onclick = function(){
+            pausa = !pausa;
+            if(pausa){
+                mus.pause();
+            } else {
+                mus.play();
+                escribir();
+            }
         }
     </script>
+
 </body>
 </html>
