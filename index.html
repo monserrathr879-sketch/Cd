@@ -41,6 +41,11 @@
 </head>
 <body>
 
+    <!-- AQUÍ CARGAMOS EL AUDIO -->
+    <audio id="musica" loop>
+        <source src="tu-musica.mp3" type="audio/mpeg">
+    
+
     <div class="contenedor">
         <div class="texto" id="texto">
             <!-- AQUÍ VA A APARECER EL TEXTO -->
@@ -58,6 +63,7 @@ No extraño la versión de mí que se rompió intentando que esto funcionara te 
 Pero volver significaría perderme otra vez, y esta vez elegí quedarme conmigo, ojalá encuentres lo que conmigo no pudiste, ojalá alguien te ame sin miedo y tú sepas quedarte, yo aprenderé a recordarte sin llorarte, adiós que la vida te cuide, como tú no supiste cuidarme`;
 
         const elementoTexto = document.getElementById('texto');
+        const musica = document.getElementById('musica');
         let indice = 0;
         let pausa = false;
 
@@ -66,18 +72,30 @@ Pero volver significaría perderme otra vez, y esta vez elegí quedarme conmigo,
             if (!pausa && indice < mensaje.length) {
                 elementoTexto.innerHTML += mensaje.charAt(indice);
                 indice++;
-                setTimeout(escribir, 100); // ✅ AHORA VA MÁS LENTO (100)
+                setTimeout(escribir, 100); // Velocidad lenta
             }
         }
 
-        // Iniciar
-        escribir();
+        // INICIAR TEXTO Y MÚSICA
+        function iniciar() {
+            escribir();
+            musica.play(); // Suena la música
+        }
 
-        // Pausar y seguir al dar clic
+        // PAUSAR Y SEGUIR TODO AL DAR CLIC
         document.body.addEventListener('click', function() {
             pausa = !pausa;
-            if (!pausa) escribir();
+            if (!pausa) {
+                escribir();
+                musica.play();
+            } else {
+                musica.pause();
+            }
         });
+
+        // Empezar todo apenas cargue
+        window.onload = iniciar;
+
     </script>
 
 </body>
