@@ -4,72 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Te extraño</title>
+
     <style>
-        * {margin:0;padding:0;box-sizing:border-box}
-        body {
-            font-family: 'Georgia', serif;
-            background: #000 url('Screenshot_2026-05-06-17-40-07-171_com.pinterest.jpg') center/cover no-repeat;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            cursor: pointer;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
-        .texto {
-            font-size: 1.5rem;
-            line-height: 1.8;
-            text-align: center;
-            text-shadow: 2px 2px 4px black;
-            max-width: 800px;
+
+        body{
+            font-family:'Georgia', serif;
+            background:
+                linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                url('Screenshot_2026-05-06-17-40-07-171_com.pinterest.jpg');
+
+            background-position:center;
+            background-size:cover;
+            background-repeat:no-repeat;
+
+            color:white;
+            min-height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            padding:20px;
+            cursor:pointer;
+        }
+
+        .texto{
+            font-size:1.5rem;
+            line-height:1.8;
+            text-align:center;
+            text-shadow:2px 2px 8px black;
+            max-width:800px;
+            white-space:pre-line;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- ✅ AQUÍ ESTÁ CERRADO CORRECTAMENTE CON  -->
+    <!-- AUDIO -->
     <audio id="musica" loop>
         <source src="Dean Lewis - With You (Official Video)_1747585723267.mp3" type="audio/mpeg">
-    
+    </audio>
 
+    <!-- TEXTO -->
     <div class="texto" id="texto"></div>
 
     <script>
-        const mensaje = `Te extraño, pero no te quiero devuelta suena absurdo pero es la verdad que más me duele aceptar, extraño tu risa, la forma en que mi nombre sonaba distinto cuando lo decías la manera en que tus ojos me hacían sentir en casa, extraño lo que fuimos o lo que creímos ser.
 
-Pero no extraño las noches sintiéndome solo a tu lado, no extraño las dudas, ni el silencio que gritaba más que nosotros...
+        const mensaje = `Te extraño, pero no te quiero de vuelta.
 
-No extraño la versión de mí que se rompió intentando que esto funcionara te extraño porque fuiste parte de mi vida, porque hay recuerdos que se quedan tatuados en el alma...
+Suena absurdo, pero es la verdad que más me duele aceptar.
 
-Pero volver significaría perderme otra vez, y esta vez elegí quedarme conmigo, ojalá encuentres lo que conmigo no pudiste, ojalá alguien te ame sin miedo y tú sepas quedarte, yo aprenderé a recordarte sin llorarte, adiós que la vida te cuide, como tú no supiste cuidarme`;
+Extraño tu risa, la forma en que mi nombre sonaba distinto cuando lo decías, la manera en que tus ojos me hacían sentir en casa.
 
-        const txt = document.getElementById('texto');
-        const mus = document.getElementById('musica');
-        let i=0, pausa=false;
+Extraño lo que fuimos... o lo que creímos ser.
 
-        function escribir() {
-            if(!pausa && i < mensaje.length){
+Pero no extraño las noches sintiéndome solo a tu lado.
+
+No extraño las dudas, ni el silencio que gritaba más que nosotros.
+
+No extraño la versión de mí que se rompió intentando que esto funcionara.
+
+Te extraño porque fuiste parte de mi vida, porque hay recuerdos que se quedan tatuados en el alma.
+
+Pero volver significaría perderme otra vez.
+
+Y esta vez elegí quedarme conmigo.
+
+Ojalá encuentres lo que conmigo no pudiste.
+
+Ojalá alguien te ame sin miedo y tú sepas quedarte.
+
+Yo aprenderé a recordarte sin llorarte.
+
+Adiós...
+
+Que la vida te cuide,
+como tú no supiste cuidarme.`;
+
+        const txt = document.getElementById("texto");
+        const mus = document.getElementById("musica");
+
+        let i = 0;
+        let pausa = false;
+
+        function escribir(){
+
+            if(pausa) return;
+
+            if(i < mensaje.length){
+
                 txt.innerHTML += mensaje.charAt(i);
+
                 i++;
-                setTimeout(escribir, 100);
+
+                setTimeout(escribir, 60);
             }
         }
 
-        // INICIAR
+        // Iniciar escritura
         escribir();
-        mus.play();
 
-        // PAUSAR
-        document.body.onclick = function(){
+        // Algunos navegadores bloquean autoplay
+        document.body.addEventListener("click", () => {
+
             pausa = !pausa;
+
             if(pausa){
+
                 mus.pause();
-            } else {
+
+            }else{
+
                 mus.play();
                 escribir();
             }
-        }
+
+        });
+
+        // Intentar reproducir audio
+        mus.play().catch(() => {
+            console.log("El navegador bloqueó el autoplay");
+        });
+
     </script>
 
 </body>
